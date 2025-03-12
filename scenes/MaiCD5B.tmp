@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqt00ae14b04l"]
+
+[ext_resource type="Script" path="res://scrips/player.gd" id="1_uu0wi"]
+[ext_resource type="Texture2D" uid="uid://b764nvfy30ken" path="res://images/floppyBird.png" id="2_0o7p8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sg01"]
+atlas = ExtResource("2_0o7p8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6berl"]
+atlas = ExtResource("2_0o7p8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok37v"]
+atlas = ExtResource("2_0o7p8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcvpo"]
+atlas = ExtResource("2_0o7p8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m11ds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sg01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6berl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok37v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcvpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k3s7"]
+size = Vector2(16, 14)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="FloppyBird" type="CharacterBody2D" parent="."]
+position = Vector2(44, 44)
+script = ExtResource("1_uu0wi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FloppyBird"]
+sprite_frames = SubResource("SpriteFrames_m11ds")
+frame = 2
+frame_progress = 0.764988
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloppyBird"]
+shape = SubResource("RectangleShape2D_6k3s7")
