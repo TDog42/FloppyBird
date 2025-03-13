@@ -15,7 +15,7 @@ data_*/
 mono_crash.*.json
 
 #project-specific ignores
-ressources/images/background
-
+build/
 
 #ressources/ #only for public commits
+ressources/images/background/
