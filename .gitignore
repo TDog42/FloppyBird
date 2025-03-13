@@ -13,3 +13,9 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+#project-specific ignores
+#ressources/images/background
+
+
+#ressources/ #only for public commits
