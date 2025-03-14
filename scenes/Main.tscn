@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bqt00ae14b04l"]
+[gd_scene load_steps=35 format=4 uid="uid://bqt00ae14b04l"]
 
 [ext_resource type="Script" path="res://scrips/player.gd" id="1_uu0wi"]
 [ext_resource type="Script" path="res://scrips/gamecontroller.gd" id="1_xoxip"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cnt2f1legfsui" path="res://ressources/images/TileStyle4.png" id="3_mltbg"]
 [ext_resource type="Texture2D" uid="uid://hm6qydhr8wne" path="res://ressources/images/Square.png" id="5_4ndkx"]
 [ext_resource type="Script" path="res://scrips/score.gd" id="5_4pkdl"]
+[ext_resource type="AudioStream" uid="uid://72ncg1wrovs4" path="res://ressources/sounds/Explosion_6.wav" id="6_3cwp8"]
 [ext_resource type="Texture2D" uid="uid://dbhfcvx0kptfa" path="res://ressources/images/background/1.png" id="6_l4e7u"]
 [ext_resource type="Texture2D" uid="uid://dmr40uwxqohcc" path="res://ressources/images/background/2.png" id="7_n4vt7"]
 [ext_resource type="Texture2D" uid="uid://cflqkc5tclfdg" path="res://ressources/images/background/3.png" id="8_66coj"]
 [ext_resource type="Texture2D" uid="uid://ciyysac80y8nt" path="res://ressources/images/background/4.png" id="9_vnpq5"]
 [ext_resource type="Texture2D" uid="uid://s6mp2rths67e" path="res://ressources/images/background/5.png" id="10_tm45g"]
+[ext_resource type="AudioStream" uid="uid://b0h7e58inou3w" path="res://ressources/sounds/Coin_5.wav" id="14_ddbtq"]
 [ext_resource type="Texture2D" uid="uid://d2l0efplq77rv" path="res://ressources/images/SpaceButtons.png" id="15_8fs2b"]
 [ext_resource type="PackedScene" uid="uid://bajxuoswldu0c" path="res://scenes/cyber_text.tscn" id="15_it47k"]
 
@@ -276,6 +278,10 @@ one_shot = true
 speed_scale = 0.61
 explosiveness = 0.95
 
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="FloppyBird"]
+stream = ExtResource("6_3cwp8")
+pitch_scale = 0.5
+
 [node name="Background" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -350,6 +356,11 @@ script = ExtResource("5_4pkdl")
 [node name="score" parent="CenterContainer/ScoreScript" instance=ExtResource("15_it47k")]
 visible = false
 text = "0"
+
+[node name="scoreAudio" type="AudioStreamPlayer2D" parent="CenterContainer/ScoreScript"]
+position = Vector2(-256, -192)
+stream = ExtResource("14_ddbtq")
+pitch_scale = 0.8
 
 [connection signal="area_entered" from="FloppyBird/Area2D" to="FloppyBird" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="FloppyBird/Explosion" to="FloppyBird" method="_on_gpu_particles_2d_finished"]

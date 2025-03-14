@@ -9,14 +9,17 @@ var tween: Tween
 var started = false
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
-@onready var explosion: GPUParticles2D = $GPUParticles2D
-
+@onready var explosion: GPUParticles2D = $Explosion
+@onready var explosion_sound: AudioStreamPlayer2D = $ExplosionSound
 
 func _ready() -> void:
 	self.pipe_collision.connect(_pipe_collision)
 
 func _pipe_collision():
 	#explode
+	if !explosion_sound.playing:
+		#make sure to only play once
+		explosion_sound.play()
 	explosion.emitting = true
 	animator.hide()
 	

@@ -9,8 +9,6 @@ var pipe = preload("res://scenes/pipe.tscn")
 @onready var title: Node2D = $CenterContainer/Title
 @onready var score: Node2D = $CenterContainer/ScoreScript/score
 
-
-
 var screen_size = DisplayServer.window_get_size()
 var timer: Timer = Timer.new()
 var timeout: float = 4
@@ -42,6 +40,7 @@ func _start_game():
 	space_button.hide()
 	title.hide()
 	score.show()
+	
 	
 	started = true
 	
