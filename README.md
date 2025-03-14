@@ -12,3 +12,5 @@ Is it a Bird? Is it a Typo? NO! It's what kids today call "the saving symbol"
    * https://www.1001fonts.com/xirod-font.html
 * SpaceBar
    * https://dreammix.itch.io/keyboard-keys-for-ui/download/eyJleHBpcmVzIjoxNzQxOTgwMzY0LCJpZCI6MTUwMjU1MH0%3d.8xaqL20GcXMcAfeMlSjJQ%2bba56U%3d
+* Sound FX
+   * https://yourpalrob.itch.io/classic-arcade-sound-effects
