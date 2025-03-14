@@ -19,12 +19,8 @@ func _ready() -> void:
 	
 	#move pipe up or down 
 	self.position.y +=  start_y_position
-	
-	#move the pipe 
-	#tween = get_tree().create_tween()
-	#tween.tween_property(self, "position", Vector2(-100, position.y), 5)
-	
-	self.velocity.x = -300
+		
+	self.velocity.x = -100
 	
 	#load random pipe TileSet
 	for child in $TileMaps/Top.get_children():

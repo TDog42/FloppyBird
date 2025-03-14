@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ckhyvkv5oaqur"
-path="res://.godot/imported/VT323-Regular.ttf-1f61d4d67b4b1adee6cdacce6f89fe72.fontdata"
+uid="uid://dl7r1imje3lly"
+path="res://.godot/imported/Xirod.otf-21b2218f83202823c21146d348155ab4.fontdata"
 
 [deps]
 
-source_file="res://ressources/fonts/VT323-Regular.ttf"
-dest_files=["res://.godot/imported/VT323-Regular.ttf-1f61d4d67b4b1adee6cdacce6f89fe72.fontdata"]
+source_file="res://ressources/fonts/Xirod.otf"
+dest_files=["res://.godot/imported/Xirod.otf-21b2218f83202823c21146d348155ab4.fontdata"]
 
 [params]
 

@@ -6,6 +6,7 @@ signal pipe_passed
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 var tween: Tween
+var started = false
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var explosion: GPUParticles2D = $GPUParticles2D
@@ -19,10 +20,12 @@ func _pipe_collision():
 	explosion.emitting = true
 	animator.hide()
 	
+func start_game():
+	started = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and started:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -48,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.collision_layer == 2:
+	if area.collision_layer == 2 : 
 		#pipe collision
 		emit_signal("pipe_collision")
 	elif area.collision_layer == 4:

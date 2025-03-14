@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bajxuoswldu0c"]
+
+[ext_resource type="FontFile" uid="uid://dl7r1imje3lly" path="res://ressources/fonts/Xirod.otf" id="1_3wr2d"]
+[ext_resource type="Script" path="res://scrips/cyber_text.gd" id="1_dqmym"]
+
+[node name="cyber_text" type="Node2D"]
+script = ExtResource("1_dqmym")
+
+[node name="MainLabel" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 525.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("1_3wr2d")
+theme_override_font_sizes/font_size = 50
+text = "FLOPPY_BIRD"
+
+[node name="BackTop" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = -1
+offset_left = 13.0
+offset_top = -1.0
+offset_right = 523.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.0196078, 0.690196, 0.709804, 1)
+theme_override_fonts/font = ExtResource("1_3wr2d")
+theme_override_font_sizes/font_size = 50
+text = "FLOPPY_BIRD"
+
+[node name="BackBottom" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = -1
+offset_left = 17.0
+offset_top = 3.0
+offset_right = 527.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.647059, 0.0470588, 0.647059, 1)
+theme_override_fonts/font = ExtResource("1_3wr2d")
+theme_override_font_sizes/font_size = 50
+text = "FLOPPY_BIRD"

@@ -1,6 +1,6 @@
-extends RichTextLabel
+extends Node2D
 
-@onready var floppy_bird: CharacterBody2D = $"../FloppyBird"
+@onready var floppy_bird: CharacterBody2D = $"../../FloppyBird"
 var score : int = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -14,17 +14,9 @@ func _pipe_passed():
 	_update_text(str(score))
 
 func _update_text(text: String):
-	#parse_bbcode("[wave amp=75.0 freq=10.0 connected=0]")
-	parse_bbcode("[center]")
-	push_font_size(100)
-	push_color("blue")
-	push_outline_color("black")
-	push_outline_size(16)
-
-	add_text(text)
-	pop()
+	$score.text = text
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	push_font_size(64)
+	pass
