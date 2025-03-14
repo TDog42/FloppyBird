@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bqt00ae14b04l"]
+[gd_scene load_steps=33 format=4 uid="uid://bqt00ae14b04l"]
 
 [ext_resource type="Script" path="res://scrips/player.gd" id="1_uu0wi"]
 [ext_resource type="Script" path="res://scrips/gamecontroller.gd" id="1_xoxip"]
@@ -6,13 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cnt2f1legfsui" path="res://ressources/images/TileStyle4.png" id="3_mltbg"]
 [ext_resource type="Texture2D" uid="uid://hm6qydhr8wne" path="res://ressources/images/Square.png" id="5_4ndkx"]
 [ext_resource type="Script" path="res://scrips/score.gd" id="5_4pkdl"]
-[ext_resource type="Texture2D" uid="uid://bhs5cyani32q7" path="res://ressources/images/Flame.png" id="5_yofb3"]
 [ext_resource type="Texture2D" uid="uid://dbhfcvx0kptfa" path="res://ressources/images/background/1.png" id="6_l4e7u"]
 [ext_resource type="Texture2D" uid="uid://dmr40uwxqohcc" path="res://ressources/images/background/2.png" id="7_n4vt7"]
 [ext_resource type="Texture2D" uid="uid://cflqkc5tclfdg" path="res://ressources/images/background/3.png" id="8_66coj"]
 [ext_resource type="Texture2D" uid="uid://ciyysac80y8nt" path="res://ressources/images/background/4.png" id="9_vnpq5"]
 [ext_resource type="Texture2D" uid="uid://s6mp2rths67e" path="res://ressources/images/background/5.png" id="10_tm45g"]
-[ext_resource type="Texture2D" uid="uid://d2l0efplq77rv" path="res://ressources/images/Keyboard Extras.png" id="15_8fs2b"]
+[ext_resource type="Texture2D" uid="uid://d2l0efplq77rv" path="res://ressources/images/SpaceButtons.png" id="15_8fs2b"]
 [ext_resource type="PackedScene" uid="uid://bajxuoswldu0c" path="res://scenes/cyber_text.tscn" id="15_it47k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8ed0"]
@@ -208,26 +207,6 @@ color_ramp = SubResource("GradientTexture1D_xws8s")
 hue_variation_min = -0.08
 hue_variation_max = 0.06
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d6fli"]
-lifetime_randomness = 0.06
-particle_flag_disable_z = true
-angle_min = -152.4
-angle_max = 199.0
-direction = Vector3(0, -1, 0)
-spread = 180.0
-initial_velocity_min = 250.0
-initial_velocity_max = 250.0
-gravity = Vector3(0, 0, 0)
-damping_min = 81.818
-damping_max = 81.818
-damping_curve = SubResource("CurveTexture_juxd4")
-scale_min = 0.1
-scale_max = 0.3
-scale_curve = SubResource("CurveTexture_bp7a6")
-color_ramp = SubResource("GradientTexture1D_xws8s")
-hue_variation_min = -0.08
-hue_variation_max = 0.06
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_iklyw"]
 atlas = ExtResource("15_8fs2b")
 region = Rect2(0, 0, 32, 16)
@@ -286,7 +265,7 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloppyBird/Area2D"]
 shape = SubResource("RectangleShape2D_6k3s7")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="FloppyBird"]
+[node name="Explosion" type="GPUParticles2D" parent="FloppyBird"]
 emitting = false
 amount = 128
 amount_ratio = 0.4319
@@ -296,17 +275,6 @@ lifetime = 0.5
 one_shot = true
 speed_scale = 0.61
 explosiveness = 0.95
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="FloppyBird"]
-emitting = false
-amount = 128
-process_material = SubResource("ParticleProcessMaterial_d6fli")
-texture = ExtResource("5_yofb3")
-lifetime = 0.5
-one_shot = true
-speed_scale = 0.61
-explosiveness = 0.93
-randomness = 0.17
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -384,5 +352,4 @@ visible = false
 text = "0"
 
 [connection signal="area_entered" from="FloppyBird/Area2D" to="FloppyBird" method="_on_area_2d_area_entered"]
-[connection signal="finished" from="FloppyBird/GPUParticles2D" to="FloppyBird" method="_on_gpu_particles_2d_finished"]
-[connection signal="finished" from="FloppyBird/GPUParticles2D2" to="FloppyBird" method="_on_gpu_particles_2d_finished"]
+[connection signal="finished" from="FloppyBird/Explosion" to="FloppyBird" method="_on_gpu_particles_2d_finished"]

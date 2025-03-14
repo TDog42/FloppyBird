@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2l0efplq77rv"
-path="res://.godot/imported/Keyboard Extras.png-122362b8ad2b8a756318cda91e0d7239.ctex"
+path="res://.godot/imported/SpaceButtons.png-7cfb9b195853ae56b4c5c84e1191c4f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ressources/images/Keyboard Extras.png"
-dest_files=["res://.godot/imported/Keyboard Extras.png-122362b8ad2b8a756318cda91e0d7239.ctex"]
+source_file="res://ressources/images/SpaceButtons.png"
+dest_files=["res://.godot/imported/SpaceButtons.png-7cfb9b195853ae56b4c5c84e1191c4f9.ctex"]
 
 [params]
 
