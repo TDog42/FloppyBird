@@ -5,7 +5,7 @@ var pipe = preload("res://scenes/pipe.tscn")
 @onready var background: ParallaxBackground = $Background
 @onready var floor_variation: Node2D = $Floor/FloorVariation
 @onready var floor: TileMapLayer = $Floor
-@onready var space_button: AnimatedSprite2D = $SpaceButton
+@onready var space_button: AnimatedSprite2D = $CenterContainer/SpaceButton
 @onready var title: Node2D = $CenterContainer/Title
 @onready var score: Node2D = $CenterContainer/ScoreScript/score
 
@@ -19,12 +19,9 @@ var tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#set player to 1/3 of the screen
-	floppy_bird.position.x = screen_size.x / 3
-	space_button.position.x = screen_size.x / 2
 	space_button.play()
 	score.hide()
-
+	print(screen_size.x)
 
 func _pipe_collision():
 	collision = true
@@ -60,7 +57,10 @@ func _process(delta: float) -> void:
 			_start_game()
 		
 	if !collision:
-		background.scroll_offset.x -= 2
+		if OS.get_name() == "Android" or OS.get_name() == "iOS":
+			background.scroll_offset.x -= 1
+		else:
+			background.scroll_offset.x -= 2
 
 
 func _createPipe():

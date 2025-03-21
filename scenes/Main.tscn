@@ -202,12 +202,13 @@ gravity = Vector3(0, 0, 0)
 damping_min = 34.373
 damping_max = 86.909
 damping_curve = SubResource("CurveTexture_juxd4")
-scale_min = 0.1
-scale_max = 0.3
+scale_min = 0.4
 scale_curve = SubResource("CurveTexture_bp7a6")
 color_ramp = SubResource("GradientTexture1D_xws8s")
 hue_variation_min = -0.08
 hue_variation_max = 0.06
+anim_speed_min = 1.0
+anim_speed_max = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iklyw"]
 atlas = ExtResource("15_8fs2b")
@@ -249,7 +250,7 @@ position = Vector2(292, 857)
 shape = SubResource("RectangleShape2D_o2b63")
 
 [node name="FloppyBird" type="CharacterBody2D" parent="."]
-position = Vector2(96, 488)
+position = Vector2(160, 488)
 rotation = 0.261799
 scale = Vector2(2, 2)
 collision_mask = 7
@@ -280,7 +281,7 @@ explosiveness = 0.95
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="FloppyBird"]
 stream = ExtResource("6_3cwp8")
-pitch_scale = 0.5
+pitch_scale = 1.7
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -332,12 +333,6 @@ position = Vector2(720, 424)
 scale = Vector2(2.5, 2.766)
 texture = ExtResource("10_tm45g")
 
-[node name="SpaceButton" type="AnimatedSprite2D" parent="."]
-position = Vector2(288, 672)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_6q7f1")
-frame_progress = 0.0848934
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 z_index = 20
 offset_left = 224.0
@@ -361,6 +356,12 @@ text = "0"
 position = Vector2(-256, -192)
 stream = ExtResource("14_ddbtq")
 pitch_scale = 0.8
+
+[node name="SpaceButton" type="AnimatedSprite2D" parent="CenterContainer"]
+position = Vector2(64, 480)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_6q7f1")
+frame_progress = 0.0848934
 
 [connection signal="area_entered" from="FloppyBird/Area2D" to="FloppyBird" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="FloppyBird/Explosion" to="FloppyBird" method="_on_gpu_particles_2d_finished"]

@@ -18,7 +18,7 @@ func _ready() -> void:
 	var tile_offset = randi_range(0,3)
 	
 	#position pipe outside screen
-	position.x =  screen_size.x+100
+	position.x =  600
 	
 	#move pipe up or down 
 	self.position.y +=  start_y_position
