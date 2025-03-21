@@ -7,6 +7,9 @@ var pipe_top = []
 var pipe_bottom = []
 var keep_moving = true
 
+var speed = -100
+var dashSpeed = 6
+
 var screen_size = DisplayServer.window_get_size()
 
 # Called when the node enters the scene tree for the first time.
@@ -19,8 +22,9 @@ func _ready() -> void:
 	
 	#move pipe up or down 
 	self.position.y +=  start_y_position
-		
-	self.velocity.x = -100
+	
+	#set initial speed
+	_reset_speed()
 	
 	#load random pipe TileSet
 	for child in $TileMaps/Top.get_children():
@@ -34,9 +38,11 @@ func _ready() -> void:
 	pipe_top[i].show()
 	pipe_bottom[i].show()
  
+func _reset_speed():
+	self.velocity.x = speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	if keep_moving:
 		move_and_slide() 
 	
